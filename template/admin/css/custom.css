@@ -1,0 +1,26 @@
+
+/**** structural styling ***/
+nav {margin-top:10px; margin-bottom:30px;}
+
+
+.divider{
+	height:1px;
+	width:100%;
+	border-bottom:#e2e2e2 1px solid;
+	margin:25px 0 25px 0;
+}
+
+
+/***** Font styling ****/
+
+html {
+	font-size:62.5%;
+}
+
+body {
+	font-size:1.0em;
+}
+
+body  p {font-size:1.2em;}
+
+body .navbar{font-size:1.2em;}
