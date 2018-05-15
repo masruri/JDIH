@@ -10,35 +10,27 @@
 	       <table id="example" class="table table-bordered table-striped">
           <thead>
             <tr style="background-color:#2c3e50; color:white">
-                <th>#</th>
-                <th>No & Tahun</th>
-                <th>Tentang</th>
-                <th style="text-align:center"><i class="fa fa-cog fa-1x"></i></th>
+                <th style=" width:20px">#</th>
+                <th>Kategori</th>
+                <th style="text-align:center; width: 60px"><i class="fa fa-cog fa-1x"></i></th>
             </tr> 
           </thead>
           <tbody>
-           <?php $no=0; foreach ($query as $row):
-           		$isi = $row['tentang'];
-           		$ten = substr($isi, 0, 50);
-           ?>
+           <?php $no=0; foreach ($query as $row):?>
             <tr>
-              <td> <?php echo ++$no;?></td>
-              <td> <?php echo $row['produk_hukum'] ?></td>
-              <td> <?php echo $ten ?></td>
-              <td style="text-align:center">
+              <td style=" width:20px"> <?php echo ++$no;?></td>
+              <td> <?php echo $row['nama_kategori'] ?></td>
+              <td style="text-align:center; width: 60px">
 
               	<div style="margin:3px">
-                   <a href="<?php echo base_url().'produkhukum/delete/'.$row['id_produk_hukum']; ?>"
+                   <a href="<?php echo base_url().'kategori/delete/'.$row['id_kategori']; ?>"
                     onClick="return confirm('Anda yakin ingin menghapus data ini?')">
                        <span class="fa fa-trash fa-1x "></span>
                    </a>
-                   <a href="<?php echo base_url().'produkhukum/update/'.$row['id_produk_hukum']; ?>">
+                   <a href="<?php echo base_url().'kategori/update_kategori/'.$row['id_kategori']; ?>">
                        <span class="fa fa-edit fa-1x" style="margin-left:20px; margin-right: 20px"></span>
                    </a>
 
-                   <a href="<?php echo base_url()?>"> 
-                    <span class="fa fa-download fa-1x"></span>
-                   </a>
                 </div>
 
               </td>
@@ -101,52 +93,22 @@
 
           <div class="modal-header"  class="btn btn-sm" style="background-color:#2c3e50; color:white">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Tambah Produk Hukum</h4>
+            <h4 class="modal-title">Tambah Kategori Peraturan</h4>
           </div>
 
-          <?php echo  form_open_multipart(base_url('Produkhukum/proses'))?>
-          <div class="modal-body">
-			
-			       <div class="form-group">
-                <label>Nomor</label>
-                <input type="text" name="produkhukum" class="form-control" >
-             </div>
+            <?php echo  form_open_multipart(base_url('kategori/proses'))?>
+            <div class="modal-body">
+               <div class="form-group">
+                  <label>Kategori</label>
+                  <input type="text" class="form-control" name="kategori">
+               </div>
+            </div>
 
-             <div class="form-group">
-                <label>Kategori</label>
-                <select name="kategori" class="form-control">
-                    <option value="KOSONG"> -- PILIH-- </option>
-                    <?php 
-                      foreach ($kategori->result_array() as $dataRow) {
-                          if ($kategori == $dataRow['id_kategori']) {
-                              $cek = " selected";
-                          } else { $cek=""; }
-                            echo "<option value='$dataRow[id_kategori]' $cek> $dataRow[nama_kategori]</option>";
-                        }
-                     ?>
-                </select>
-             </div>
-
-             <div class="form-group">
-                <label>Tentang</label>
-                <textarea name="tentang" id="" cols="30" rows="5" class="form-control"></textarea>
-             </div>
-
-             <div class="form-group">
-  			       <?php 
-          				echo form_label('Nama File', 'gambar'); 
-          				echo form_upload('userfile');
-  				     ?>
-			       </div>
-
-          </div>
-
-          <div class="modal-footer">
-              <button type="submit" class="btn btn-sm" class="btn btn-sm" style="background-color:#2c3e50; color:white" data-dismiss="modal">Close</button>
-              <input type="submit" name="Simpan" class="btn btn-sm" style="background-color:#2c3e50; color:white" value="Simpan">
-          </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-sm" class="btn btn-sm" style="background-color:#2c3e50; color:white" data-dismiss="modal">Close</button>
+                <input type="submit" name="Simpan" class="btn btn-sm" style="background-color:#2c3e50; color:white" value="Simpan">
+            </div>
           <?php echo  form_close()?>
-
         </div>
     </div>
 </div>

@@ -119,7 +119,7 @@
                   <h5><strong><a href="#"><?php echo $row['produk_hukum']; ?></a></strong></h5>
                   <p><?php echo $ten; ?></p>
                     <i class="icon-download-alt">&nbsp;<span style="color:#d35400"><?php echo $row['download'] ?></span>&nbsp;Downloaded</i> | 
-                    <i class="icon-calendar-alt">&nbsp;<span style="color:#d35400">Di Posting:<?php echo $row['tahun']?></i>
+                    <i class="icon-calendar-alt">&nbsp;<span style="color:#d35400">Di Posting:<?php echo $row['tgl']?></i>
               
 
                   <div class="pull-right">

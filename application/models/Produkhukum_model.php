@@ -32,11 +32,12 @@ class Produkhukum_model extends CI_Model
 		$nama_file = $_FILES['userfile']['name'];
 
 		$data = array(
+			'id_kategori' => $this->input->post('kategori'),
 			'produk_hukum' => $this->input->post('produkhukum'),
 			'tentang' => $this->input->post('tentang'),
 	        'berkas' => $nama_file
 	    );
-
+		$this->db->set('tgl','NOW()', FALSE);
 		$this->db->insert('produk_hukum', $data);
 	  }
 
@@ -61,11 +62,20 @@ class Produkhukum_model extends CI_Model
 	    );
 
 		$this->db->where('id_produk_hukum', $id);
+		$this->db->set('tgl','NOW()', FALSE);
 		$this->db->update('produk_hukum', $data);
 	}
 
 	public function ubah_tampil($id)
 	{
-		return $this->db->get_where('produk_hukum', array('id_produk_hukum'=>$id))->row();
+		// return $this->db->get_where('produk_hukum', array('id_produk_hukum'=>$id))->row();
+
+		$this->db->select('*');
+		$this->db->from('produk_hukum');
+		$this->db->join('kategori', 'kategori.id_kategori = produk_hukum.id_kategori');
+		$this->db->where('id_produk_hukum', $id);
+		$query = $this->db->get()->row();
+		return $query;
+
 	}
 }

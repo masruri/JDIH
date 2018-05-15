@@ -37,8 +37,12 @@
 			<div class="container-fluid">
 				
 				<div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i>
-						 /<?php echo $title;  ?></button>
+					<button type="button" class="btn-toggle-fullwidth">
+						<i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+
+				<div class="navbar-btn">
+					<button><?php echo $title; ?></button>
 				</div>
 	
 				<div id="navbar-menu">
@@ -69,7 +73,16 @@
 
 						<li><a href="<?php echo base_url('produkhukum')?>" 
 						class="<?php if($this->uri->segment('1') == 'produkhukum'){echo "active";}?>">
-						<i class="fa fa-bullhorn fa-5x"></i> <span>Produk Hukum</span></a></li>
+						<i class="fa fa-bullhorn fa-5x"></i> <span>Menu Produk Hukum</span></a></li>
+
+						<li><a href="<?php echo base_url('Kategori')?>" 
+						class="<?php if($this->uri->segment('1') == 'kategori'){echo "active";}?>">
+						<i class="fa fa-folder fa-5x"></i> <span>Menu Kategori</span></a></li>
+
+						<li><a href="<?php echo base_url('user')?>" 
+						class="<?php if($this->uri->segment('1') == 'user'){echo "active";}?>">
+						<i class="fa fa-user fa-5x"></i> <span>Menu User</span></a></li>
+
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">

@@ -13,6 +13,7 @@ class Produkhukum extends CI_Controller
 		$data['title'] = 'Produk Hukum';
 		$data['jenis'] = 'Produk Hukum';
 		$data['query'] = $this->mproduk->tampil();
+		$data['kategori'] = $this->db->query("SELECT * FROM kategori ORDER BY id_kategori");
 		$this->load->view('tempadmin/template', $data);
 	}
 
@@ -41,6 +42,5 @@ class Produkhukum extends CI_Controller
 		$this->db->where('id_produk_hukum', $id);
 		$this->db->delete('produk_hukum');
 		redirect('produkhukum/index');
-
 	}
 }
